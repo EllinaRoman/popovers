@@ -17,7 +17,7 @@ const createTooltip = (btn) => {
 };
 const tooltip = createTooltip(button);
 
-button.addEventListener("click", (e) => {
+button.addEventListener("click", () => {
   tooltip.classList.toggle("hidden");
 
   const rectButton = button.getBoundingClientRect();
