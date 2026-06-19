@@ -2,10 +2,13 @@ const puppeteer = require("puppeteer");
 const path = require("path");
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox"],
+  });
   const page = await browser.newPage();
 
-  await page.goto('file://' + path.resolve(__dirname, '../../dist/index.html'));
+  await page.goto("file://" + path.resolve(__dirname, "../../dist/index.html"));
   await page.waitForSelector(".tooltip");
 
   await page.click("button");
